@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="CRB4MFB:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/CRB4MFB_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="CRB4MFB/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="CRB4MFB" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
