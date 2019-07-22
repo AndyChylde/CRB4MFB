@@ -1,20 +1,19 @@
 package com.andychylde.crb4.util;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.registry.JAXRException;
 import javax.xml.registry.infomodel.PersonName;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Person {
+public class Person implements Serializable{
     //    Attributes............................................................
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int personId;
+    @Embedded
     private PersonName personName = new Person_Name();
     private LocalDate birthDate;
 
@@ -58,14 +57,16 @@ public class Person {
     }
 
 
-    private static class Person_Name implements PersonName {
+    @Embeddable
+    private static class Person_Name implements PersonName, Serializable {
 
         //    Attributes............................................................
         String firstName = "", middleName = "", familyName = "";
+        transient String fullName;
 
         //    Setters and Getters...................................................
         public String getLastName() throws JAXRException {
-            return null;
+            return this.familyName;
         }
 
         public void setLastName(String s) throws JAXRException {
@@ -96,7 +97,7 @@ public class Person {
         }
 
         public void setFullName(String s) throws JAXRException {
-
+            this.fullName = this.toString();
         }
 
         @Override
