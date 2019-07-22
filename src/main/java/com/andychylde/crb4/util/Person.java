@@ -1,6 +1,8 @@
 package com.andychylde.crb4.util;
 
 
+import com.andychylde.crb4.SystemUser;
+
 import javax.persistence.*;
 import javax.xml.registry.JAXRException;
 import javax.xml.registry.infomodel.PersonName;
@@ -8,7 +10,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-public class Person implements Serializable{
+public class Person extends SystemUser implements Serializable{
     //    Attributes............................................................
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
