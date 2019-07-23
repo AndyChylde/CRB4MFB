@@ -16,15 +16,19 @@ public class Person extends SystemUser implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int personId;
     @Embedded
-    private PersonName personName = new Person_Name();
+    private Person_Name personName = new Person_Name();
     private LocalDate birthDate;
+
+//    Constructor(s)............................................................
+
+
 
     //    Setters and Getters...................................................
     public String getPersonName() {
         return personName.toString();
     }
 
-    public void setPersonName(PersonName personName) {
+    public void setPersonName(Person_Name personName) {
         this.personName = personName;
     }
 
