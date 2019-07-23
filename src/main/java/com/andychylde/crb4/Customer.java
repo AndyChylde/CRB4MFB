@@ -2,6 +2,7 @@ package com.andychylde.crb4;
 
 import com.andychylde.crb4.util.Person;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import java.util.HashMap;
@@ -12,7 +13,8 @@ public class Customer {
     @EmbeddedId
     private CustomerId customerId;
     private final Person person;
-    private Map<Account.AccountNum, Account> accounts = new HashMap<>();
+    @ElementCollection
+    private final Map<Account.AccountNum, Account> accounts = new HashMap<>();
 
 
     //    Constructor(s)................................................................
